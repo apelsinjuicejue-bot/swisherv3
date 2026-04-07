@@ -1,22 +1,24 @@
-```html
 <!DOCTYPE html>
 <html lang="sv">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Swish</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Swisher</title>
 
 <style>
 
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+
 body{
 margin:0;
-font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display",Arial;
-background:#031a2a;
+font-family:-apple-system,BlinkMacSystemFont,Helvetica,Arial;
+background:#041626;
 color:white;
+height:100vh;
 overflow:hidden;
 }
 
-.container{
+.app{
 display:flex;
 width:300vw;
 height:100vh;
@@ -26,8 +28,7 @@ transition:0.4s;
 .screen{
 width:100vw;
 height:100vh;
-flex-shrink:0;
-position:relative;
+overflow-y:auto;
 }
 
 .home{
@@ -37,177 +38,205 @@ padding:20px;
 .header{
 display:flex;
 align-items:center;
-gap:14px;
-margin-top:20px;
-}
-
-.header img{
-width:40px;
-}
-
-.title{
-font-size:28px;
-font-weight:600;
-}
-
-.bank{
-color:#8ea3b5;
-font-size:16px;
-}
-
-.card{
-margin-top:25px;
-border-radius:26px;
-background:#071f34;
-border:1px solid #1c3550;
-padding:18px;
-}
-
-.card img{
-width:100%;
-border-radius:16px;
-margin-bottom:10px;
-}
-
-.card-title{
-font-size:22px;
-}
-
-.buttons{
-position:absolute;
-bottom:120px;
-width:100%;
-display:flex;
-gap:20px;
-padding:0 20px;
-box-sizing:border-box;
-}
-
-.btn{
-flex:1;
-padding:20px;
-border-radius:22px;
-border:none;
-font-size:24px;
-color:white;
-}
-
-.swish{
-background:#1987c6;
-}
-
-.scan{
-background:#243d5b;
-}
-
-.nav{
-position:absolute;
-bottom:0;
-width:100%;
-height:90px;
-background:#031a2a;
-border-top:1px solid #0d2d45;
-display:flex;
-justify-content:space-around;
-align-items:center;
-color:#9bb1c3;
-}
-
-.pay{
-padding:30px;
-}
-
-.input{
-width:100%;
-padding:18px;
-border-radius:16px;
-border:none;
-background:#0a2338;
-color:white;
-margin-bottom:20px;
-font-size:20px;
-}
-
-.paybtn{
-width:100%;
-padding:20px;
-border-radius:20px;
-border:none;
-background:#1987c6;
-font-size:24px;
-color:white;
-}
-
-.success{
-background:#7ab33b;
-display:flex;
-flex-direction:column;
-align-items:center;
-justify-content:center;
-text-align:center;
-}
-
-.check{
-width:110px;
-height:110px;
-border-radius:100px;
-border:6px solid rgba(255,255,255,0.6);
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:60px;
-color:white;
-}
-
-.sent{
-font-size:32px;
-margin-top:20px;
-}
-
-.bottom{
-position:absolute;
-bottom:0;
-width:100%;
-background:#071a2d;
-border-top-left-radius:60px;
-border-top-right-radius:60px;
-padding:60px 20px 50px;
-}
-
-.date{
-color:#8fa3b3;
-margin-bottom:20px;
-}
-
-.name{
-font-size:28px;
-}
-
-.phone{
-color:#a6b8c8;
-margin-top:4px;
-}
-
-.amount{
-font-size:64px;
+gap:12px;
 margin-top:20px;
 }
 
 .logo{
+height:40px;
+}
+
+.bank{
+color:#9fb2c4;
+font-size:14px;
+}
+
+.card{
+background:#081f34;
+border-radius:20px;
+padding:16px;
+margin-top:18px;
+border:1px solid rgba(255,255,255,0.06);
+}
+
+.card img{
+width:100%;
+border-radius:12px;
+}
+
+.card-title{
+font-size:22px;
+margin-top:12px;
+}
+
+.row{
+display:flex;
+gap:12px;
+margin-top:20px;
+}
+
+.btn{
+flex:1;
+border-radius:22px;
+padding:20px;
+font-size:22px;
+border:none;
+color:white;
+}
+
+.swish{
+background:#1b82c1;
+}
+
+.scan{
+background:#243a56;
+}
+
+.nav{
+position:fixed;
+bottom:0;
+width:100%;
+display:flex;
+justify-content:space-around;
+padding:14px 0 20px;
+background:#041626;
+color:#8aa1b6;
+}
+
+.pay{
+padding:20px;
+}
+
+.field{
+margin-top:20px;
+}
+
+.field label{
+color:#8aa1b6;
+font-size:18px;
+}
+
+.field input{
+width:100%;
+margin-top:8px;
+padding:16px;
+border-radius:14px;
+border:none;
+background:#0b2338;
+color:white;
+font-size:18px;
+}
+
+.paybtn{
 margin-top:30px;
+width:100%;
+padding:20px;
+border:none;
+border-radius:20px;
+background:#1b82c1;
+font-size:22px;
+color:white;
+}
+
+.success{
+background:#041626;
+text-align:center;
+}
+
+.green{
+background:#6ea43c;
+height:55vh;
+border-bottom-left-radius:120px;
+border-bottom-right-radius:120px;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+position:relative;
+overflow:hidden;
+}
+
+.check{
 width:120px;
+height:120px;
+border-radius:100px;
+border:6px solid rgba(255,255,255,0.4);
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:60px;
+}
+
+.success-text{
+margin-top:20px;
+font-size:28px;
 }
 
 .bubble{
 position:absolute;
-background:rgba(255,255,255,0.4);
+width:10px;
+height:10px;
+background:white;
 border-radius:50%;
+opacity:0.8;
 animation:float 6s linear infinite;
 }
 
 @keyframes float{
-0%{transform:translateY(0)}
-100%{transform:translateY(-600px)}
+0%{transform:translateY(80px);opacity:0}
+100%{transform:translateY(-500px);opacity:1}
+}
+
+.info{
+padding:30px 20px;
+}
+
+.date{
+color:#8aa1b6;
+font-size:18px;
+}
+
+.name{
+font-size:32px;
+margin-top:10px;
+}
+
+.phone{
+color:#8aa1b6;
+font-size:20px;
+margin-top:6px;
+}
+
+.amount{
+font-size:60px;
+margin-top:20px;
+}
+
+.swishlogo{
+margin-top:40px;
+display:flex;
+justify-content:center;
+align-items:center;
+gap:10px;
+font-size:34px;
+}
+
+.swishlogo img{
+height:40px;
+}
+
+.close{
+position:absolute;
+right:20px;
+bottom:40px;
+width:70px;
+height:70px;
+border-radius:40px;
+background:#0d2237;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:32px;
 }
 
 </style>
@@ -215,14 +244,14 @@ animation:float 6s linear infinite;
 
 <body>
 
-<div id="container" class="container">
+<div class="app" id="app">
 
 <div class="screen home">
 
 <div class="header">
-<img src="swisher2.png">
+<img src="swisher2.png" class="logo">
 <div>
-<div class="title">Swish</div>
+<div style="font-size:28px">Swish</div>
 <div class="bank">Swedbank</div>
 </div>
 </div>
@@ -237,8 +266,8 @@ animation:float 6s linear infinite;
 <div class="card-title">Lägg till dina favoriter direkt på hemskärmen!</div>
 </div>
 
-<div class="buttons">
-<button class="btn swish" onclick="go(1)">Swisha</button>
+<div class="row">
+<button class="btn swish" onclick="goPay()">Swisha</button>
 <button class="btn scan">Skanna</button>
 </div>
 
@@ -253,29 +282,49 @@ animation:float 6s linear infinite;
 
 <div class="screen pay">
 
-<input id="name" class="input" placeholder="Namn">
-<input id="phone" class="input" placeholder="Telefonnummer">
-<input id="amount" class="input" placeholder="Belopp">
+<div class="field">
+<label>Mottagare</label>
+<input id="name">
+</div>
+
+<div class="field">
+<label>Nummer</label>
+<input id="phone">
+</div>
+
+<div class="field">
+<label>Belopp</label>
+<input id="amount">
+</div>
 
 <button class="paybtn" onclick="send()">Swisha</button>
 
 </div>
 
-<div id="success" class="screen success" onclick="go(0)">
+<div class="screen success">
+
+<div class="green" id="green">
 
 <div class="check">✓</div>
-<div class="sent">Din betalning är skickad!</div>
-
-<div class="bottom">
-
-<div id="date" class="date"></div>
-<div id="sname" class="name"></div>
-<div id="sphone" class="phone"></div>
-<div id="samount" class="amount"></div>
-
-<img src="swisher2.png" class="logo">
+<div class="success-text">Din betalning är skickad!</div>
 
 </div>
+
+<div class="info">
+
+<div class="date" id="date"></div>
+<div class="name" id="rname"></div>
+<div class="phone" id="rphone"></div>
+<div class="amount" id="ramount"></div>
+
+<div class="swishlogo">
+<img src="swisher2.png">
+<span>swish</span>
+</div>
+
+</div>
+
+<div class="close" onclick="home()">✕</div>
 
 </div>
 
@@ -283,8 +332,14 @@ animation:float 6s linear infinite;
 
 <script>
 
-function go(i){
-document.getElementById("container").style.transform="translateX(-"+(i*100)+"vw)"
+const app=document.getElementById("app")
+
+function goPay(){
+app.style.transform="translateX(-100vw)"
+}
+
+function home(){
+app.style.transform="translateX(0)"
 }
 
 function send(){
@@ -293,44 +348,30 @@ let name=document.getElementById("name").value
 let phone=document.getElementById("phone").value
 let amount=document.getElementById("amount").value
 
+document.getElementById("rname").innerText=name
+document.getElementById("rphone").innerText=phone
+document.getElementById("ramount").innerText=amount+" kr"
+
 let d=new Date()
+document.getElementById("date").innerText=d.toLocaleDateString("sv-SE",{day:"numeric",month:"short",year:"numeric"})+", kl "+d.toLocaleTimeString("sv-SE",{hour:"2-digit",minute:"2-digit"})
 
-let months=["jan","feb","mar","apr","maj","jun","jul","aug","sep","okt","nov","dec"]
-
-let date=d.getDate()+" "+months[d.getMonth()]+". "+d.getFullYear()+", kl "+String(d.getHours()).padStart(2,"0")+":"+String(d.getMinutes()).padStart(2,"0")
-
-document.getElementById("sname").innerText=name
-document.getElementById("sphone").innerText=phone
-document.getElementById("samount").innerText=amount+" kr"
-document.getElementById("date").innerText=date
-
-go(2)
-
-for(let i=0;i<20;i++)bubble()
+app.style.transform="translateX(-200vw)"
 
 }
 
-function bubble(){
+const green=document.getElementById("green")
 
+green.onclick=()=>{
+for(let i=0;i<15;i++){
 let b=document.createElement("div")
-
 b.className="bubble"
-
-let size=Math.random()*20+10
-
-b.style.width=size+"px"
-b.style.height=size+"px"
 b.style.left=Math.random()*100+"%"
-b.style.bottom="-40px"
-
-document.getElementById("success").appendChild(b)
-
-setTimeout(()=>b.remove(),6000)
-
+b.style.animationDuration=4+Math.random()*4+"s"
+green.appendChild(b)
+}
 }
 
 </script>
 
 </body>
 </html>
-```
