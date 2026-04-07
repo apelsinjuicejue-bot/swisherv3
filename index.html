@@ -2,47 +2,70 @@
 <html lang="sv">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Swisher</title>
 
 <style>
+:root {
+  --bg:#0c1116;
+  --card:#0f1620;
+  --text:white;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Arial;
-  background: #0c1116;
-  color: white;
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* iPhone top safe area */
+.safe {
+  height: env(safe-area-inset-top);
+  background: var(--bg);
 }
 
 .screen { display:none; height:100vh; }
 .active { display:flex; flex-direction:column; }
 
-/* HOME (same as before) */
 .home {
   flex:1; display:flex; flex-direction:column; justify-content:center; align-items:center;
 }
+
 .logo { width:170px; margin-bottom:40px; }
+
 .main-btn {
-  width:80%; max-width:320px; padding:18px; border-radius:14px; border:none;
+  width:80%; max-width:320px; padding:18px; border-radius:14px;
+  border:none;
   background: linear-gradient(180deg,#36a9d6,#1c86b8);
   color:white; font-size:20px; font-weight:600;
 }
 
-/* SCREEN 2 EXACT STYLE */
-.pay {
-  height:100vh;
-  display:flex;
-  flex-direction:column;
+.settings {
+  position:absolute;
+  top:50px;
+  right:20px;
+  font-size:20px;
+  cursor:pointer;
 }
 
+.toggle {
+  position:absolute;
+  bottom:40px;
+  font-size:14px;
+  color:#7ec7ea;
+  cursor:pointer;
+}
+
+.pay { display:flex; flex-direction:column; height:100vh; }
+
 .topbar {
-  display:flex; justify-content:space-between; align-items:center;
-  padding:18px 20px; font-size:24px;
+  display:flex; justify-content:space-between; padding:18px 20px; font-size:24px;
 }
 
 .tabs {
-  display:flex; justify-content:space-around;
-  font-size:18px; color:#7f8b95;
-  border-bottom:1px solid #1a222a;
+  display:flex; justify-content:space-around; border-bottom:1px solid #1a222a;
+  color:#7f8b95;
 }
 
 .tab-active {
@@ -50,23 +73,15 @@ body {
 }
 
 .tab-active::after {
-  content:"";
-  position:absolute; left:0; right:0; bottom:0;
-  height:3px; background:#6ec1e4; border-radius:3px;
-}
-
-.content {
-  flex:1;
-  overflow:hidden; /* NO SCROLL */
-  padding:10px 0;
+  content:""; position:absolute; left:0; right:0; bottom:0;
+  height:3px; background:#6ec1e4;
 }
 
 .card {
   margin:14px 16px;
   border-radius:22px;
   padding:22px;
-  background:#0f1620;
-  border:1px solid #1a2530;
+  background: var(--card);
 }
 
 .label {
@@ -75,20 +90,10 @@ body {
 }
 
 .input {
-  width:100%;
-  margin-top:10px;
-  padding:14px;
-  border-radius:12px;
-  border:none;
-  background:#0c1116;
-  color:white;
+  width:100%; margin-top:10px; padding:14px;
+  border-radius:12px; border:none;
+  background:#0c1116; color:white;
   font-size:18px;
-  outline:none;
-}
-
-.link {
-  color:#7ec7ea;
-  margin:10px 20px;
 }
 
 .bottom {
@@ -96,37 +101,40 @@ body {
 }
 
 .bottom-btn {
-  width:100%;
-  padding:18px;
-  border-radius:18px;
+  width:100%; padding:18px; border-radius:18px;
   border:none;
   background: linear-gradient(90deg,#4b8fc5,#6aa6d6);
-  color:white;
-  font-size:20px;
-  font-weight:600;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  gap:10px;
+  color:white; font-size:20px;
+  display:flex; justify-content:center; align-items:center; gap:10px;
 }
 
-.bottom-btn img {
-  height:26px;
+.bottom-btn img { height:26px; }
+
+.light {
+  --bg:#ffffff;
+  --card:#f2f2f2;
+  --text:#000000;
 }
 </style>
 </head>
 
 <body>
 
-<!-- HOME SCREEN -->
+<div class="safe"></div>
+
+<!-- HOME -->
 <div id="home" class="screen active">
+  <div class="settings" onclick="toggleTheme()">⚙️</div>
+
   <div class="home">
     <img src="swisher.png" class="logo">
     <button class="main-btn" onclick="goToPay()">Swisha</button>
   </div>
+
+  <div class="toggle" onclick="toggleTheme()">Byt tema</div>
 </div>
 
-<!-- PAY SCREEN -->
+<!-- PAY -->
 <div id="pay" class="screen pay">
 
   <div class="topbar">
@@ -139,30 +147,19 @@ body {
     <div>Be om</div>
   </div>
 
-  <div class="content">
+  <div class="card">
+    <div class="label">Mottagare</div>
+    <input class="input" placeholder="Namn">
+  </div>
 
-    <div class="card">
-      <div class="label">Mottagare</div>
-      <input class="input" placeholder="Namn">
-    </div>
+  <div class="card">
+    <div class="label">Nummer</div>
+    <input class="input" placeholder="Telefonnummer">
+  </div>
 
-    <div class="card">
-      <div class="label">Nummer</div>
-      <input class="input" placeholder="Telefonnummer">
-    </div>
-
-    <div class="card">
-      <div class="label">Belopp</div>
-      <input class="input" placeholder="">
-    </div>
-
-    <div class="card">
-      <div class="label">Meddelande</div>
-      <input class="input" placeholder="">
-    </div>
-
-    <div class="link">Skicka med ett kort</div>
-
+  <div class="card">
+    <div class="label">Belopp</div>
+    <input class="input" placeholder="0 kr">
   </div>
 
   <div class="bottom">
@@ -183,6 +180,10 @@ function goToPay(){
 function goHome(){
   document.getElementById('pay').classList.remove('active');
   document.getElementById('home').classList.add('active');
+}
+
+function toggleTheme(){
+  document.body.classList.toggle('light');
 }
 </script>
 
