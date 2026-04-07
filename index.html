@@ -6,114 +6,224 @@
 <title>Swisher</title>
 
 <style>
-:root {
-  --bg:#0c1116;
-  --card:#0f1620;
-  --text:white;
+:root{
+--bg:#0c1116;
+--card:#0f1620;
+--text:white;
 }
 
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Arial;
-  background: var(--bg);
-  color: var(--text);
+body{
+margin:0;
+font-family:-apple-system,BlinkMacSystemFont,Arial;
+background:var(--bg);
+color:var(--text);
+overflow:hidden;
 }
 
-/* iPhone top safe area */
-.safe {
-  height: env(safe-area-inset-top);
-  background: var(--bg);
+.safe{
+height:env(safe-area-inset-top);
+background:var(--bg);
 }
 
-.screen { display:none; height:100vh; }
-.active { display:flex; flex-direction:column; }
+.screen{display:none;height:100vh}
+.active{display:flex;flex-direction:column}
 
-.home {
-  flex:1; display:flex; flex-direction:column; justify-content:center; align-items:center;
+.home{
+flex:1;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
 }
 
-.logo { width:170px; margin-bottom:40px; }
+.logo{width:170px;margin-bottom:40px}
 
-.main-btn {
-  width:80%; max-width:320px; padding:18px; border-radius:14px;
-  border:none;
-  background: linear-gradient(180deg,#36a9d6,#1c86b8);
-  color:white; font-size:20px; font-weight:600;
+.main-btn{
+width:80%;
+max-width:320px;
+padding:18px;
+border-radius:14px;
+border:none;
+background:linear-gradient(180deg,#36a9d6,#1c86b8);
+color:white;
+font-size:20px;
+font-weight:600;
 }
 
-.settings {
-  position:absolute;
-  top:50px;
-  right:20px;
-  font-size:20px;
-  cursor:pointer;
+.settings{
+position:absolute;
+top:50px;
+right:20px;
+font-size:20px;
+cursor:pointer;
 }
 
-.toggle {
-  position:absolute;
-  bottom:40px;
-  font-size:14px;
-  color:#7ec7ea;
-  cursor:pointer;
+.toggle{
+position:absolute;
+bottom:40px;
+font-size:14px;
+color:#7ec7ea;
+cursor:pointer;
 }
 
-.pay { display:flex; flex-direction:column; height:100vh; }
+.pay{display:flex;flex-direction:column;height:100vh}
 
-.topbar {
-  display:flex; justify-content:space-between; padding:18px 20px; font-size:24px;
+.topbar{
+display:flex;
+justify-content:space-between;
+padding:18px 20px;
+font-size:24px;
 }
 
-.tabs {
-  display:flex; justify-content:space-around; border-bottom:1px solid #1a222a;
-  color:#7f8b95;
+.tabs{
+display:flex;
+justify-content:space-around;
+border-bottom:1px solid #1a222a;
+color:#7f8b95;
 }
 
-.tab-active {
-  color:white; position:relative; padding-bottom:10px;
+.tab-active{
+color:white;
+position:relative;
+padding-bottom:10px;
 }
 
-.tab-active::after {
-  content:""; position:absolute; left:0; right:0; bottom:0;
-  height:3px; background:#6ec1e4;
+.tab-active::after{
+content:"";
+position:absolute;
+left:0;
+right:0;
+bottom:0;
+height:3px;
+background:#6ec1e4;
 }
 
-.card {
-  margin:14px 16px;
-  border-radius:22px;
-  padding:22px;
-  background: var(--card);
+.card{
+margin:14px 16px;
+border-radius:22px;
+padding:22px;
+background:var(--card);
 }
 
-.label {
-  font-size:22px;
-  color:#9aa4ad;
+.label{
+font-size:22px;
+color:#9aa4ad;
 }
 
-.input {
-  width:100%; margin-top:10px; padding:14px;
-  border-radius:12px; border:none;
-  background:#0c1116; color:white;
-  font-size:18px;
+.input{
+width:100%;
+margin-top:10px;
+padding:14px;
+border-radius:12px;
+border:none;
+background:#0c1116;
+color:white;
+font-size:18px;
 }
 
-.bottom {
-  padding:16px;
+.bottom{padding:16px}
+
+.bottom-btn{
+width:100%;
+padding:18px;
+border-radius:18px;
+border:none;
+background:linear-gradient(90deg,#4b8fc5,#6aa6d6);
+color:white;
+font-size:20px;
+display:flex;
+justify-content:center;
+align-items:center;
+gap:10px;
 }
 
-.bottom-btn {
-  width:100%; padding:18px; border-radius:18px;
-  border:none;
-  background: linear-gradient(90deg,#4b8fc5,#6aa6d6);
-  color:white; font-size:20px;
-  display:flex; justify-content:center; align-items:center; gap:10px;
+.bottom-btn img{height:26px}
+
+.light{
+--bg:#ffffff;
+--card:#f2f2f2;
+--text:#000000;
 }
 
-.bottom-btn img { height:26px; }
+.success{
+height:100vh;
+background:#7bb041;
+position:relative;
+display:flex;
+flex-direction:column;
+justify-content:flex-start;
+align-items:center;
+text-align:center;
+overflow:hidden;
+}
 
-.light {
-  --bg:#ffffff;
-  --card:#f2f2f2;
-  --text:#000000;
+.success-top{
+margin-top:120px;
+color:white;
+}
+
+.check{
+width:90px;
+height:90px;
+border-radius:50%;
+border:6px solid rgba(255,255,255,0.5);
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:50px;
+margin:auto;
+}
+
+.sent{
+font-size:34px;
+margin-top:30px;
+}
+
+.success-bottom{
+position:absolute;
+bottom:0;
+width:100%;
+background:#071321;
+border-top-left-radius:60px;
+border-top-right-radius:60px;
+padding:60px 20px 40px;
+color:white;
+}
+
+.date{
+color:#8fa3b3;
+margin-bottom:20px;
+}
+
+.name{
+font-size:28px;
+margin-bottom:6px;
+}
+
+.phone{
+color:#9fb3c1;
+margin-bottom:25px;
+}
+
+.amount{
+font-size:60px;
+}
+
+.swishlogo{
+margin-top:40px;
+width:120px;
+}
+
+.bubble{
+position:absolute;
+background:rgba(255,255,255,0.4);
+border-radius:50%;
+animation:float 6s linear infinite;
+}
+
+@keyframes float{
+from{transform:translateY(0)}
+to{transform:translateY(-600px)}
 }
 </style>
 </head>
@@ -122,69 +232,130 @@ body {
 
 <div class="safe"></div>
 
-<!-- HOME -->
 <div id="home" class="screen active">
-  <div class="settings" onclick="toggleTheme()">⚙️</div>
+<div class="settings" onclick="toggleTheme()">⚙️</div>
 
-  <div class="home">
-    <img src="swisher.png" class="logo">
-    <button class="main-btn" onclick="goToPay()">Swisha</button>
-  </div>
-
-  <div class="toggle" onclick="toggleTheme()">Byt tema</div>
+<div class="home">
+<img src="swisher.png" class="logo">
+<button class="main-btn" onclick="goToPay()">Swisha</button>
 </div>
 
-<!-- PAY -->
+<div class="toggle" onclick="toggleTheme()">Byt tema</div>
+</div>
+
 <div id="pay" class="screen pay">
 
-  <div class="topbar">
-    <div onclick="goHome()">✕</div>
-    <div>?</div>
-  </div>
+<div class="topbar">
+<div onclick="goHome()">✕</div>
+<div>?</div>
+</div>
 
-  <div class="tabs">
-    <div class="tab-active">Swisha</div>
-    <div>Be om</div>
-  </div>
+<div class="tabs">
+<div class="tab-active">Swisha</div>
+<div>Be om</div>
+</div>
 
-  <div class="card">
-    <div class="label">Mottagare</div>
-    <input class="input" placeholder="Namn">
-  </div>
+<div class="card">
+<div class="label">Mottagare</div>
+<input id="name" class="input" placeholder="Namn">
+</div>
 
-  <div class="card">
-    <div class="label">Nummer</div>
-    <input class="input" placeholder="Telefonnummer">
-  </div>
+<div class="card">
+<div class="label">Nummer</div>
+<input id="phone" class="input" placeholder="Telefonnummer">
+</div>
 
-  <div class="card">
-    <div class="label">Belopp</div>
-    <input class="input" placeholder="0 kr">
-  </div>
+<div class="card">
+<div class="label">Belopp</div>
+<input id="amount" class="input" placeholder="0 kr">
+</div>
 
-  <div class="bottom">
-    <button class="bottom-btn">
-      Swisha
-      <img src="Id.png">
-    </button>
-  </div>
+<div class="bottom">
+<button class="bottom-btn" onclick="sendPay()">
+Swisha
+<img src="Id.png">
+</button>
+</div>
+
+</div>
+
+<div id="success" class="screen success" onclick="spawnBubble()">
+
+<div class="success-top">
+<div class="check">✓</div>
+<div class="sent">Din betalning är skickad!</div>
+</div>
+
+<div class="success-bottom" onclick="goHome()">
+
+<div id="date" class="date"></div>
+<div id="sname" class="name"></div>
+<div id="sphone" class="phone"></div>
+<div id="samount" class="amount"></div>
+
+<img src="swisher.png" class="swishlogo">
+
+</div>
 
 </div>
 
 <script>
+
 function goToPay(){
-  document.getElementById('home').classList.remove('active');
-  document.getElementById('pay').classList.add('active');
+document.getElementById('home').classList.remove('active')
+document.getElementById('pay').classList.add('active')
 }
 
 function goHome(){
-  document.getElementById('pay').classList.remove('active');
-  document.getElementById('home').classList.add('active');
+document.getElementById('success').classList.remove('active')
+document.getElementById('pay').classList.remove('active')
+document.getElementById('home').classList.add('active')
 }
 
 function toggleTheme(){
-  document.body.classList.toggle('light');
+document.body.classList.toggle('light')
 }
+
+function sendPay(){
+
+let name=document.getElementById('name').value
+let phone=document.getElementById('phone').value
+let amount=document.getElementById('amount').value
+
+let now=new Date()
+let months=["jan","feb","mar","apr","maj","jun","jul","aug","sep","okt","nov","dec"]
+
+let date=now.getDate()+" "+months[now.getMonth()]+". "+now.getFullYear()+", kl "+String(now.getHours()).padStart(2,"0")+":"+String(now.getMinutes()).padStart(2,"0")
+
+document.getElementById('sname').innerText=name
+document.getElementById('sphone').innerText=phone
+document.getElementById('samount').innerText=amount+" kr"
+document.getElementById('date').innerText=date
+
+document.getElementById('pay').classList.remove('active')
+document.getElementById('success').classList.add('active')
+
+for(let i=0;i<15;i++)spawnBubble()
+}
+
+function spawnBubble(){
+
+let b=document.createElement("div")
+b.className="bubble"
+
+let size=Math.random()*20+6
+
+b.style.width=size+"px"
+b.style.height=size+"px"
+b.style.left=Math.random()*100+"%"
+b.style.bottom="-20px"
+
+document.getElementById("success").appendChild(b)
+
+setTimeout(()=>b.remove(),6000)
+
+}
+
 </script>
 
 </body>
